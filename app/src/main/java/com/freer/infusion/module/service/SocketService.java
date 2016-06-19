@@ -387,6 +387,7 @@ public class SocketService extends Service {
                 if (msg!=null && msg.obj != null) {
                     System.out.println("收到原始数据"+msg.obj.toString());
                 }
+
                 String data = (String) msg.obj;
 //                mSocketDataProcess.processData(data);
                 mFollowModel.processData(data, true);
@@ -395,7 +396,11 @@ public class SocketService extends Service {
                 //那么，如果在成功绑定之前，当前service就已经运行到这里
                 //就会出现数据丢失的情况
                 if (mIReceiveMessage != null) {
+                    Log.i(mTag,"mIReceivedMessage is not null" + "follow size :" +mFollowModel.getData().size() + " all size: " + mAllModel.getData().size());
                     mIReceiveMessage.receiveMessage(mFollowModel.getData(), mAllModel.getData());
+                }
+                else {
+                    Log.i(mTag,"mIReceiveMessae is null");
                 }
             } else if (msg.what == HANDLER_LOCAL) { //收到本地需要修改的数据
                 SocketEntity socketEntity = JsonUtils.fromJson((String) msg.obj, SocketEntity.class);

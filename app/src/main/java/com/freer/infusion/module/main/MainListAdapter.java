@@ -27,6 +27,7 @@ import java.util.Map;
  */
 public class MainListAdapter extends BaseAdapter {
 
+    private static final String mTag = "MainListAdapter";
     private Context mContext;
     private LayoutInflater mInflater;
 
@@ -40,6 +41,7 @@ public class MainListAdapter extends BaseAdapter {
     }
 
     public void setData(List<SocketEntity> dataList) {
+        Log.i(mTag,">>>>>>setData");
         mDataList = dataList;
         notifyDataSetChanged();
     }

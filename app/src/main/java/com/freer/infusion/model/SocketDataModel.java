@@ -20,6 +20,7 @@ import java.util.Map;
  */
 public class SocketDataModel {
 
+    private static final String mTag="SocketDataModel";
     private List<SocketEntity> mDataList;
     private Map<String, SocketEntity> mDataMap;
 
@@ -44,11 +45,14 @@ public class SocketDataModel {
      */
     public void setData(SocketEntity data, boolean isFollow) {
         String bedId = String.valueOf(data.BedId);
+        Log.i(mTag,"setData ->> bedId" + bedId);
         if (mDataMap.containsKey(data.UxName)) {
+            Log.i(mTag,"mData contain " + data.UxName);
             if (data.WorkingState == SocketDataProcess.WORK_NO ||
                     data.WorkingState < 0 ||
                     data.WorkingState > 7) {
                 mDataMap.remove(data.UxName);
+                Log.e(mTag,"setData return from workingState:" + data.WorkingState);
                 return;
             }
             if (followBed != null && followBed.size()!=0) {
@@ -59,6 +63,7 @@ public class SocketDataModel {
                                     (data.WorkingState == SocketDataProcess.WORK_BEGIN ||
                                         data.WorkingState == SocketDataProcess.WORK_NORMAL)) {
                                 mDataMap.remove(data.UxName);
+                                Log.w(mTag,"isFollow work return");
                                 return;
                             }
                         } else {
@@ -103,9 +108,12 @@ public class SocketDataModel {
             data.WarnProcess = 0==data.WarnProcess?fromL.WarnProcess:data.WarnProcess;
             mDataMap.put(data.UxName, data);
         } else {
+            Log.i(mTag,"mData not contain UxName:" + data.UxName);
+
             if (data.WorkingState == SocketDataProcess.WORK_NO ||
                     data.WorkingState < 0 ||
                     data.WorkingState > 7) {
+                Log.e(mTag,"Working state error" + data.WorkingState);
                 return;
             }
             if (followBed != null && followBed.size()!=0) {
@@ -118,6 +126,7 @@ public class SocketDataModel {
                                 return;
                             }
                         } else {
+                            Log.i(mTag,"not contain bedID:" + bedId);
                             return;
                         }
                     }
@@ -231,10 +240,17 @@ public class SocketDataModel {
     public void processData(String message, boolean isFollow) {
 
         DataEntity dataEntity = JsonUtils.fromJson(message, DataEntity.class);
-        if (dataEntity == null || dataEntity.d == null) return;
+        if (dataEntity == null || dataEntity.d == null) {
+            Log.e(mTag,"phase json data error");
+            return;
+        }
 
+        Log.i(mTag,"get json data:" + dataEntity.toString());
         myBed = AppConfig.getInstance().getMyBed();
         followBed = AppConfig.getInstance().getFollowBed();
+        if(AppConfig.getInstance().getMode() == 1){
+            myBed.put("0","0");
+        }
 
         AppConfig appConfig = AppConfig.getInstance();
 

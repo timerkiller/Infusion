@@ -27,6 +27,7 @@ public class MainFragment extends BaseFragment {
 
     private MainListAdapter mMainListAdapter;
 
+    private ListViewCompat mListViewCompat;
     private SocketService.SocketBinder mSocketBinder = null;
     private IFrag2Act mIFrag2Act = null;
 
@@ -38,6 +39,7 @@ public class MainFragment extends BaseFragment {
         if (mMainListAdapter == null) {
             mMainListAdapter = new MainListAdapter(getActivity());
         }
+        mListViewCompat.setAdapter(mMainListAdapter);
         mMainListAdapter.setData(dataList);
     }
 
@@ -54,12 +56,12 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        ListViewCompat listViewCompat = (ListViewCompat) rootView.findViewById(R.id.list);
-        listViewCompat.setAdapter(mMainListAdapter = new MainListAdapter(getActivity()));
+        mListViewCompat = (ListViewCompat) rootView.findViewById(R.id.list);
+        mListViewCompat.setAdapter(mMainListAdapter = new MainListAdapter(getActivity()));
 
         mProgressDialog = DialogManger.getProgressDialog(getActivity());
 
-        listViewCompat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListViewCompat.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mPopupWindow = DialogManger.getMainPopupWindow(getActivity(),

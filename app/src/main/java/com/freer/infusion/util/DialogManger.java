@@ -109,6 +109,7 @@ public class DialogManger{
             bedNum.setBackgroundDrawable(null);
         }
 
+
         if (data != null) {
             int baseDeviceNum = 0;
             if(data.UxId.equals("0C"))
