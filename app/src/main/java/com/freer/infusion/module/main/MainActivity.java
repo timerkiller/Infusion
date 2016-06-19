@@ -17,6 +17,7 @@ import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -168,13 +169,14 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
         mFllowFragment = new MainFragment();
         mAllFragment = new MainFragment();
 
-        mTabFragmentAdapter = new TabFragmentAdapter(getSupportFragmentManager());
+        mTabFragmentAdapter = new TabFragmentAdapter(getSupportFragmentManager(),MainActivity.this);
 
-        mTabFragmentAdapter.addFragment(mAllFragment, getString(R.string.main_all_bed));
         mTabFragmentAdapter.addFragment(mFllowFragment, getString(R.string.main_att_bed));
+        mTabFragmentAdapter.addFragment(mAllFragment, getString(R.string.main_all_bed));
 
         mViewPager.setAdapter(mTabFragmentAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setCurrentItem(1);
 
         // 注册广播
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
@@ -299,4 +301,38 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);
     }
+
+    class TabOnPageChangeListener implements ViewPager.OnPageChangeListener{
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            Log.i(mTag,"position:" + position+" positionOffset:"+positionOffset + " positionOffsetPixels" + positionOffsetPixels);
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            //重置所有TextView和Button的字体颜色
+//            switch (position) {
+//                case FRAGMENT_ID_TASK_LIST:
+//                    mTaskButton.setBackgroundResource(R.drawable.icon_bottom_mission_green);
+//                    mTaskTextView.setTextColor(Color.parseColor("#05C0AB"));
+//                    break;
+//                case FRAGMENT_ID_MESSAGE:
+//                    mMessageButton.setBackgroundResource(R.drawable.icon_bottom_msg_green);
+//                    mMessageTextView.setTextColor(Color.parseColor("#05C0AB"));
+//                    break;
+//                case FRAGMENT_ID_PERSONAL_INFO:
+//                    mPersonalInfoButton.setBackgroundResource(R.drawable.icon_bottom_mine_green);
+//                    mPersonalInfoTextView.setTextColor(Color.parseColor("#05C0AB"));
+//                    break;
+//            }
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+        }
+    }
+
 }
