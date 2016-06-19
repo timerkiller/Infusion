@@ -60,7 +60,7 @@
     <!--首页列表-->
     <string name="bed_unit">%s床</string>
     <string name="total_unit">%sml</string>
-
+    <string name="device">[%s]</string>
     <!--首页菜单-->
     <string name="menu_bed_manager">床位管理</string>
     <string name="menu_system_setting">系统设置</string>

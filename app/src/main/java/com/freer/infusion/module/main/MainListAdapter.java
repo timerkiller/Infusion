@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.freer.infusion.R;
+import com.freer.infusion.config.AppConfig;
 import com.freer.infusion.entity.SocketEntity;
 import com.freer.infusion.model.SocketDataProcess;
 
@@ -76,8 +77,37 @@ public class MainListAdapter extends BaseAdapter {
         SocketEntity data = mDataList.get(position);
         holder.mView.setBackgroundColor(
                 SocketDataProcess.getColor(mContext, data.WorkingState));
-        holder.mBedNum.setText(
-                String.format(mContext.getString(R.string.bed_unit), String.valueOf(data.BedId)));
+        if(AppConfig.getInstance().getMode() == 1){
+            int baseDeviceNum = 0;
+            if(data.UxId.equals("0C"))
+            {
+                baseDeviceNum = 12;
+            }else if(data.UxId.equals("0A"))
+            {
+                baseDeviceNum = 10;
+            }
+            else if(data.UxId.equals("0B")){
+                baseDeviceNum = 11;
+            }
+            else {
+                baseDeviceNum = Integer.valueOf(data.UxId);
+            }
+
+            String UxName = String.valueOf((Integer.valueOf(data.RFId)-1)*12 + baseDeviceNum) ;
+            if(data.BedId == 0 ){
+                holder.mBedNum.setText(
+                        String.format(mContext.getString(R.string.device), UxName));
+            }
+            else{
+                holder.mBedNum.setText(
+                        String.format("%s床[%s]", String.valueOf(data.BedId),UxName));
+            }
+
+        }else{
+            holder.mBedNum.setText(
+                    String.format(mContext.getString(R.string.bed_unit), String.valueOf(data.BedId)));
+        }
+
         holder.mSpeed.setText(String.valueOf(data.CurrSpeed));
         holder.mSpeedLower.setText(String.valueOf(data.LowLimitSpeed));
         holder.mSpeedUpper.setText(String.valueOf(data.TopLimitSpeed));
