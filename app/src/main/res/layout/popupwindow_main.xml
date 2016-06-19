@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            style="@style/ItemMainPopup">
+            <android.support.v7.widget.AppCompatImageView
+                app:srcCompat="@drawable/icon_ux_name"
+                android:id="@+id/popupwindow_device_num_image_view"
+                style="@style/ImgvLabelMainPopup"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvLabelMainPopup"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/popupwindow_device_num_image_view"
+                android:text="@string/device_num"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/device_number"
+                style="@style/EtvMainPopup"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="3dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/popupwindow_loudspeaker_button"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <RelativeLayout
+            style="@style/ItemMainPopup">
+            <android.support.v7.widget.AppCompatImageView
+                app:srcCompat="@drawable/icon_bed_id"
+                android:id="@+id/popupwindow_bed_num_image_view"
+                style="@style/ImgvLabelMainPopup" />
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvLabelMainPopup"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/popupwindow_bed_num_image_view"
+                android:text="@string/bed_num"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/bed_number"
+                style="@style/EtvMainPopup" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="3dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/popupwindow_stop_button"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <RelativeLayout
+            style="@style/ItemMainPopup">
+            <android.support.v7.widget.AppCompatImageView
+                app:srcCompat="@drawable/icon_low_speed_limit"
+                android:id="@+id/popupwindow_limit_low_image_view"
+                style="@style/ImgvLabelMainPopup" />
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvLabelMainPopup"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/popupwindow_limit_low_image_view"
+                android:text="@string/low_limit_speed"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/lower_speed"
+                style="@style/EtvMainPopup" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvUnitMainPopup"
+                android:text="@string/speed_unit"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <RelativeLayout
+            style="@style/ItemMainPopup">
+            <android.support.v7.widget.AppCompatImageView
+                app:srcCompat="@drawable/icon_up_speed_limit"
+                android:id="@+id/popupwindow_limit_top_image_view"
+                style="@style/ImgvLabelMainPopup" />
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvLabelMainPopup"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/popupwindow_limit_top_image_view"
+                android:text="@string/top_limit_speed"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/upper_speed"
+                style="@style/EtvMainPopup" />
+            <TextView
+                style="@style/TvUnitMainPopup"
+                android:text="@string/speed_unit"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <RelativeLayout
+            style="@style/ItemMainPopup">
+            <android.support.v7.widget.AppCompatImageView
+                app:srcCompat="@drawable/icon_total"
+                android:id="@+id/popupwindow_total_capacity_image_view"
+                style="@style/ImgvLabelMainPopup" />
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvLabelMainPopup"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/popupwindow_total_capacity_image_view"
+                android:text="@string/amount"/>
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/amount"
+                style="@style/EtvMainPopup" />
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvUnitMainPopup"
+                android:text="@string/amount_unit"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center">-->
+                <!--<android.support.v7.widget.AppCompatTextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="声音"-->
+                    <!--android:layout_marginRight="@dimen/activity_margin_large"/>-->
+                <!--<android.support.v7.widget.SwitchCompat-->
+                    <!--android:id="@+id/switch_voice"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content" />-->
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center">-->
+                <!--<android.support.v7.widget.AppCompatTextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="紧急制停"-->
+                    <!--android:layout_marginRight="@dimen/activity_margin_large"/>-->
+                <!--<android.support.v7.widget.SwitchCompat-->
+                    <!--android:id="@+id/switch_power"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent">
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/cancel"
+                style="@style/ImgvLabelMainPopup.Comfirm"
+                app:srcCompat="@drawable/ic_clear"/>
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TvTitleMainPopup"
+                android:text="@string/popup_title"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/ok"
+                style="@style/ImgvLabelMainPopup.Comfirm"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/ic_done"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
