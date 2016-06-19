@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.LayoutRes;
@@ -109,7 +110,22 @@ public class DialogManger{
         }
 
         if (data != null) {
-            String UxName = String.valueOf((Integer.valueOf(data.RFId)-1)*12 + Integer.valueOf(data.UxId)) ;
+            int baseDeviceNum = 0;
+            if(data.UxId.equals("0C"))
+            {
+                baseDeviceNum = 12;
+            }else if(data.UxId.equals("0A"))
+            {
+                baseDeviceNum = 10;
+            }
+            else if(data.UxId.equals("0B")){
+                baseDeviceNum = 11;
+            }
+            else {
+                baseDeviceNum = Integer.valueOf(data.UxId);
+            }
+            String UxName = String.valueOf((Integer.valueOf(data.RFId)-1)*12 + baseDeviceNum) ;
+
             Log.i(mTag,"From server data.RFId" + data.RFId + "UxId :" + data.UxId);
             deviceNum.setText(UxName);
             bedNum.setText(String.valueOf(data.BedId));
@@ -124,15 +140,18 @@ public class DialogManger{
 
             if(isOpenVoice) {
                 loudspeakerButton.setText("喇叭单关");
-                loudspeakerButton.setBackgroundColor(Color.GREEN);
+                //loudspeakerButton.setBackgroundColor(Color.GREEN);
+                loudspeakerButton.setBackgroundResource(R.drawable.ic_close_loudspeaker);
             }else{
                 loudspeakerButton.setText("喇叭单开");
-                loudspeakerButton.setBackgroundColor(Color.GRAY);
+                //loudspeakerButton.setBackgroundColor(Color.GRAY);
+                loudspeakerButton.setBackgroundResource(R.drawable.ic_open_loudspeaker);
             }
 
             urgentShutdownButton.setText("紧急停止");
-            urgentShutdownButton.setBackgroundColor(Color.RED);
+            urgentShutdownButton.setBackgroundResource(R.drawable.ic_imerg_stop);
         }
+
 
         loudspeakerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,12 +160,12 @@ public class DialogManger{
                 if(loudspeaker.getText().equals("喇叭单开")){
                     saveData(data,101,0,onMainPopupOkListener,true);
                     loudspeaker.setText("喇叭单关");
-                    loudspeakerButton.setBackgroundColor(Color.GREEN);
+                    loudspeakerButton.setBackgroundResource(R.drawable.ic_close_loudspeaker);
                 }
                 else {
                     saveData(data,100,0,onMainPopupOkListener,true);
                     loudspeaker.setText("喇叭单开");
-                    loudspeaker.setBackgroundColor(Color.GRAY);
+                    loudspeakerButton.setBackgroundResource(R.drawable.ic_open_loudspeaker);
                 }
             }
         });

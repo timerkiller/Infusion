@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
                 Log.i(mTag,"received set ip action");
                 mProgressDialog.dismiss();
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("服务器IP错误，请到系统设置设置IP");
+                builder.setTitle("连接超时，请检查服务器端IP设置");
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which)
                     {

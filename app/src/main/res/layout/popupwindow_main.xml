@@ -16,7 +16,7 @@
                 style="@style/ImgvLabelMainPopup"/>
             <android.support.v7.widget.AppCompatTextView
                 style="@style/TvLabelMainPopup"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/popupwindow_device_num_image_view"
                 android:text="@string/device_num"/>
             <android.support.v7.widget.AppCompatEditText
@@ -24,11 +24,12 @@
                 style="@style/EtvMainPopup"/>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_margin="3dp"
                 android:layout_centerInParent="true"
                 android:id="@+id/popupwindow_loudspeaker_button"
+                android:textColor="@color/transparent"
                 android:layout_alignParentRight="true"/>
 
         </RelativeLayout>
@@ -46,7 +47,7 @@
                 style="@style/ImgvLabelMainPopup" />
             <android.support.v7.widget.AppCompatTextView
                 style="@style/TvLabelMainPopup"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/popupwindow_bed_num_image_view"
                 android:text="@string/bed_num"/>
             <android.support.v7.widget.AppCompatEditText
@@ -54,11 +55,12 @@
                 style="@style/EtvMainPopup" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_margin="3dp"
                 android:layout_centerInParent="true"
                 android:id="@+id/popupwindow_stop_button"
+                android:textColor="@color/transparent"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
 
@@ -75,7 +77,7 @@
                 style="@style/ImgvLabelMainPopup" />
             <android.support.v7.widget.AppCompatTextView
                 style="@style/TvLabelMainPopup"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/popupwindow_limit_low_image_view"
                 android:text="@string/low_limit_speed"/>
             <android.support.v7.widget.AppCompatEditText
@@ -100,7 +102,7 @@
                 style="@style/ImgvLabelMainPopup" />
             <android.support.v7.widget.AppCompatTextView
                 style="@style/TvLabelMainPopup"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/popupwindow_limit_top_image_view"
                 android:text="@string/top_limit_speed"/>
             <android.support.v7.widget.AppCompatEditText
@@ -124,7 +126,7 @@
                 style="@style/ImgvLabelMainPopup" />
             <android.support.v7.widget.AppCompatTextView
                 style="@style/TvLabelMainPopup"
-                android:layout_marginLeft="8dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/popupwindow_total_capacity_image_view"
                 android:text="@string/amount"/>
             <android.support.v7.widget.AppCompatEditText

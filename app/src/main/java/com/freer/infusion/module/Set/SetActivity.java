@@ -191,6 +191,7 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
         mEditPort = (EditText) contentView.findViewById(R.id.edit_server_port);
         mBtnServerOk = (Button) contentView.findViewById(R.id.btn_server_ok);
         mBtnServerCancel = (Button) contentView.findViewById(R.id.btn_server_cancel);
+        mEditAddress.setText(AppConfig.getInstance().getServerIp());
 
         mBtnServerOk.setOnClickListener(this);
         mBtnServerCancel.setOnClickListener(this);

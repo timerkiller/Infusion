@@ -50,8 +50,8 @@
     <!--首页弹窗-->
     <string name="device_num">设备号</string>
     <string name="bed_num">床位号</string>
-    <string name="top_limit_speed">上限滴速</string>
-    <string name="low_limit_speed">下限滴速</string>
+    <string name="top_limit_speed">滴速上限</string>
+    <string name="low_limit_speed">滴速下限</string>
     <string name="amount">总容量</string>
     <string name="speed_unit">滴/分钟</string>
     <string name="amount_unit">毫升(ml)</string>

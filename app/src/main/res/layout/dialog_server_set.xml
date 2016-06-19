@@ -38,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         android:padding="10dp">
 
         <TextView
@@ -68,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/string_login"/>
 
         <Button
