@@ -73,6 +73,7 @@ public class MainListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+
         SocketEntity data = mDataList.get(position);
         holder.mView.setBackgroundColor(
                 SocketDataProcess.getColor(mContext, data.WorkingState));

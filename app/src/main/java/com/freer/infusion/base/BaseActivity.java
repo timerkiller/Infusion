@@ -6,7 +6,7 @@ import android.view.MenuItem;
 /**
  * Created by 2172980000774 on 2016/5/10.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends BaseSwipeBackActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

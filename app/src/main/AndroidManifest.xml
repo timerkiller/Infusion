@@ -49,10 +49,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.Set.SetActivity" />
-        <activity android:name=".module.Set.BedSetActivity"></activity>
-        <activity android:name=".module.us.AboutUsActivity"></activity>
-        <service android:name=".module.service.SocketService"></service>
+        <activity android:name=".module.Set.SetActivity"
+            android:theme="@style/AppTransparentTheme"/>
+        <activity android:name=".module.Set.BedSetActivity"
+            android:theme="@style/AppTransparentTheme"/>
+        <activity android:name=".module.us.AboutUsActivity"
+            android:theme="@style/AppTransparentTheme"/>
+        <service android:name=".module.service.SocketService" />
 
         <!-- 配置个推第三方Receiver -->
         <receiver

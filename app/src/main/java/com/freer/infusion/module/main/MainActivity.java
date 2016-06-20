@@ -21,6 +21,7 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -44,7 +45,7 @@ import com.tencent.bugly.crashreport.CrashReport;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements SocketService.IReceiveMessage, IFrag2Act {
+public class MainActivity extends AppCompatActivity implements SocketService.IReceiveMessage, IFrag2Act {
 
     private static final String mTag = "MainActivity";
     private MainFragment mFllowFragment; //关注床位界面
@@ -94,8 +95,9 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
     @Override
     public void resetIpNeedMessage() {
         Log.i(mTag,"resetIpNeedMessage");
-
+        Log.i(mTag,"reset function invoked");
     }
+
 
     @Override
     public void sendFailed() {
@@ -211,14 +213,12 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
                     }
                 });
 
-
         // 初始化个推
 //        PushManager.getInstance().initialize(this.getApplicationContext());
         // 初始化360更新
         UpdataHelper.getInstance().init(getApplicationContext(), Color.parseColor("#43A047"));
         // 检查更新
 //        UpdataHelper.getInstance().manualUpdate("com.freer.infusion");
-
         mProgressDialog = DialogManger.getProgressDialog(this);
         mProgressDialog.show();
     }
@@ -241,7 +241,6 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
         mSocketBinder.reStart();
         mProgressDialog.show();
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

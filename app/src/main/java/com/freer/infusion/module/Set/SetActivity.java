@@ -85,7 +85,7 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
         mToolbar = (Toolbar) findViewById(R.id.toolbar_set);
         mToolbar.setTitle(R.string.string_title_set);
         setSupportActionBar(mToolbar);
-
+        
         mLinearSound = (LinearLayout) findViewById(R.id.linear_set_sound);
         mLinearShark = (LinearLayout) findViewById(R.id.linear_set_shark);
         mLinearEdition = (LinearLayout) findViewById(R.id.linear_set_edition);

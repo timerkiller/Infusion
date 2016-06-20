@@ -126,4 +126,20 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@android:color/holo_red_light</item>
     </style>
+
+    <style name="AppTransparentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">@color/colorLightBlue</item>-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--<item name="titleTextColor">@color/colorWhite</item>-->
+        <!--<item name="android:textColorPrimary">@color/colorWhite</item>-->
+        <!--<item name="android:textColor">@color/colorBlack</item>-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
 </resources>
