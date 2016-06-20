@@ -85,7 +85,7 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
         mToolbar = (Toolbar) findViewById(R.id.toolbar_set);
         mToolbar.setTitle(R.string.string_title_set);
         setSupportActionBar(mToolbar);
-        
+
         mLinearSound = (LinearLayout) findViewById(R.id.linear_set_sound);
         mLinearShark = (LinearLayout) findViewById(R.id.linear_set_shark);
         mLinearEdition = (LinearLayout) findViewById(R.id.linear_set_edition);
@@ -101,7 +101,7 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
         mTxtvEdition.setText(mAppConfig.getMode() == 0 ?
                 getString(R.string.string_mode_standard):
                 getString(R.string.string_mode_optional));
-        mTxtvServer.setText(mAppConfig.getServerIp() + " " + mAppConfig.getServerPort());
+        mTxtvServer.setText(mAppConfig.getServerIp()); //+ " " + mAppConfig.getServerPort());
 
         mLinearSound.setOnClickListener(this);
         mLinearShark.setOnClickListener(this);
@@ -265,7 +265,7 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
                 if (strIP != null && !"".equals(strIP) && strPort != null && !"".equals(strPort)){
                     mAppConfig.setServerIp(strIP);
                     mAppConfig.setServerPort(strPort);
-                    mTxtvServer.setText(strIP + " " + strPort);
+                    mTxtvServer.setText(strIP);// + " " + strPort);
                 } else {
                     ToastUtils.getInstance().showShort(mContext, "请输入ＩＰ地址和端口号！");
                 }
