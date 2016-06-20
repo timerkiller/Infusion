@@ -89,6 +89,7 @@ public class DialogManger{
 
         deviceNum = (AppCompatEditText) contentView.findViewById(R.id.device_number);
         bedNum = (AppCompatEditText) contentView.findViewById(R.id.bed_number);
+        bedNum.setSelectAllOnFocus(true);
         lowerSpeed = (AppCompatEditText) contentView.findViewById(R.id.lower_speed);
         lowerSpeed.setSelectAllOnFocus(true);
         upperSpeed = (AppCompatEditText) contentView.findViewById(R.id.upper_speed);
@@ -150,7 +151,14 @@ public class DialogManger{
             }
 
             urgentShutdownButton.setText("紧急停止");
-            urgentShutdownButton.setBackgroundResource(R.drawable.ic_imerg_stop);
+            if(data.IsUrgentShutdown == 168){
+                urgentShutdownButton.setBackgroundResource(R.drawable.ic_emerge_stop_red);
+                urgentShutdownButton.setClickable(false);
+            }
+            else {
+                urgentShutdownButton.setClickable(true);
+                urgentShutdownButton.setBackgroundResource(R.drawable.ic_imerg_stop);
+            }
         }
 
 
@@ -185,6 +193,8 @@ public class DialogManger{
                 }
 
                 saveData(data,loudspeakerValue,168,onMainPopupOkListener,true);
+                urgentShutdownButton.setClickable(false);
+                urgentShutdownButton.setBackgroundResource(R.drawable.ic_emerge_stop_red);
                 //mainPopupWindow.dismiss();
             }
         });

@@ -228,7 +228,7 @@
                     android:text="@string/string_set_server"
                     android:textSize="@dimen/size_font_normal"
                     android:textColor="@color/black"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="14dp"/>
 
                 <TextView
                     android:id="@+id/txtv_set_server"

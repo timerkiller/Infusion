@@ -37,7 +37,6 @@ public class MainListAdapter extends BaseAdapter {
     public MainListAdapter(Context context) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
-
         mDataList = new ArrayList<SocketEntity>();
     }
 
@@ -138,7 +137,6 @@ public class MainListAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder {
-
         View mView;
         TextView mBedNum;
         TextView mTotalNum;

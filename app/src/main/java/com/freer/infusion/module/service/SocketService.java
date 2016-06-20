@@ -424,7 +424,6 @@ public class SocketService extends Service {
                 if (mIReceiveMessage != null) {
                     mIReceiveMessage.resetIpNeedMessage();
                 }
-
                 Intent intent=new Intent(NEED_SET_IP_ACTION);
                 mLocalBroadcastManager.sendBroadcast(intent);
             }

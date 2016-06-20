@@ -19,7 +19,7 @@
     <string name="string_low_power_warning">低电量提示</string>
     <string name="string_set_edition">模式选项</string>
     <string name="string_set_bed">床位管理</string>
-    <string name="string_set_server">服务器设置</string>
+    <string name="string_set_server">服务器IP地址</string>
     <string name="string_back_to_main_activity">返回主界面</string>
     <string name="string_mode_select">模式选项</string>
     <string name="string_mode_standard">标配模式</string>
@@ -39,7 +39,7 @@
     <string name="app_cancel">取消</string>
     <string name="app_retry_title">连接服务器失败</string>
     <string name="app_retry_action">重试</string>
-    <string name="main_att_bed">关注</string>
+    <string name="main_att_bed">关     注</string>
     <string name="main_all_bed">我的床位</string>
     <string name="main_to_conn">正在连接...</string>
 

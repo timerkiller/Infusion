@@ -171,7 +171,7 @@ public class MainActivity extends BaseActivity implements SocketService.IReceive
 
         mTabFragmentAdapter = new TabFragmentAdapter(getSupportFragmentManager(),MainActivity.this);
 
-        mTabFragmentAdapter.addFragment(mFllowFragment, getString(R.string.main_att_bed));
+        mTabFragmentAdapter.addFragment(mFllowFragment, "关     注");
         mTabFragmentAdapter.addFragment(mAllFragment, getString(R.string.main_all_bed));
 
         mViewPager.setAdapter(mTabFragmentAdapter);
