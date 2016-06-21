@@ -320,6 +320,7 @@ public class AppConfig {
             myBedMap = CommonUtil.strToHash((String) SPUtils.get(SP_MY_BED, CommonUtil.hashToString(myBedMap)));
             return myBedMap;
         }
+
         return myBedMap;
     }
 

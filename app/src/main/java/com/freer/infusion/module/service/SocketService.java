@@ -446,6 +446,7 @@ public class SocketService extends Service {
         Socket socket = null;
         try {
             socket = new Socket();
+            socket.setReuseAddress(true);
             socket.connect(new InetSocketAddress(ip, PORT), 5000);
             socket.setSoTimeout(1 * 5000);
 
@@ -457,6 +458,7 @@ public class SocketService extends Service {
                 os.write(message.getBytes());
                 os.flush(); //刷新输出流，使Server马上收到该字符串
             }
+
 
             //获取输入流
             InputStream is = socket.getInputStream();

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -25,6 +26,9 @@ import com.freer.infusion.config.AppConfig;
 import com.freer.infusion.module.main.MainActivity;
 import com.freer.infusion.module.service.SocketService;
 import com.freer.infusion.util.ToastUtils;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SetActivity extends BaseActivity implements OnClickListener, CompoundButton.OnCheckedChangeListener {
 
@@ -192,6 +196,25 @@ public class SetActivity extends BaseActivity implements OnClickListener, Compou
         mBtnServerOk = (Button) contentView.findViewById(R.id.btn_server_ok);
         mBtnServerCancel = (Button) contentView.findViewById(R.id.btn_server_cancel);
         mEditAddress.setText(AppConfig.getInstance().getServerIp());
+        mEditAddress.setSelectAllOnFocus(true);
+
+//        mEditAddress.setFocusable(true);
+//        mEditAddress.setFocusableInTouchMode(true);
+//        mEditAddress.requestFocus();
+//        InputMethodManager inputManager =
+//                (InputMethodManager)mEditAddress.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+//        inputManager.showSoftInput(mEditAddress, 0);
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+           public void run()
+           {
+               InputMethodManager inputManager =
+                       (InputMethodManager)mEditAddress.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+               inputManager.showSoftInput(mEditAddress, 0);
+           }
+
+       }, 300);
 
         mBtnServerOk.setOnClickListener(this);
         mBtnServerCancel.setOnClickListener(this);

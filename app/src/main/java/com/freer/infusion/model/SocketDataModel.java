@@ -249,7 +249,10 @@ public class SocketDataModel {
         myBed = AppConfig.getInstance().getMyBed();
         followBed = AppConfig.getInstance().getFollowBed();
         if(AppConfig.getInstance().getMode() == 1){
-            myBed.put("0","0");
+            if(myBed != null){
+                myBed.put("0","0");
+            }
+
         }
 
         AppConfig appConfig = AppConfig.getInstance();

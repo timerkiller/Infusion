@@ -4,6 +4,13 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+    }
+
     defaultConfig {
         applicationId "com.freer.infusion"
         minSdkVersion 15
@@ -37,10 +44,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.google.code.gson:gson:2.6.2'
-//    compile 'com.getui:sdk:2.8.1.0'
-//    compile 'com.getui:ext:2.0.3'
+    //    compile 'com.getui:sdk:2.8.1.0'
+    //    compile 'com.getui:ext:2.0.3'
     compile files('libs/360update-5.0.2.jar')
     compile 'com.tencent.bugly:crashreport:2.1.5'
     compile 'com.tencent.bugly:nativecrashreport:2.2.0'
     compile project(':SlidingLibrary')
+    compile files('libs/httpclient-4.5.2.jar')
+    compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
 }
