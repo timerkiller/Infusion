@@ -47,6 +47,8 @@ public class DialogManger{
     private static AppCompatEditText amount ;
     private static Button loudspeakerButton;
     private static Button urgentShutdownButton;
+
+    private static boolean voiceButton = true;
     /**
      * 主界面,床位信息设置弹窗
      */
@@ -136,9 +138,19 @@ public class DialogManger{
             amount.setText(String.valueOf(data.ClientAction));
             // 设置声音状态
             boolean isOpenVoice;
-            if (data.IsEnableMac == 101) isOpenVoice = true;
-            else if (data.IsEnableMac == 100) isOpenVoice = false;
-            else isOpenVoice = true;
+            if (data.IsEnableMac == 101) {
+                isOpenVoice = true;
+                voiceButton = true;
+            }
+            else if (data.IsEnableMac == 100) {
+                isOpenVoice = false;
+                voiceButton = false;
+            }
+            else{
+
+                isOpenVoice = voiceButton;
+            }
+
 
             if(isOpenVoice) {
                 loudspeakerButton.setText("喇叭单关");
@@ -167,11 +179,13 @@ public class DialogManger{
             public void onClick(View v) {
                 Button loudspeaker = (Button)v;
                 if(loudspeaker.getText().equals("喇叭单开")){
+                    voiceButton = true;
                     saveData(data,101,0,onMainPopupOkListener,true);
                     loudspeaker.setText("喇叭单关");
                     loudspeakerButton.setBackgroundResource(R.drawable.ic_close_loudspeaker);
                 }
                 else {
+                    voiceButton = false;
                     saveData(data,100,0,onMainPopupOkListener,true);
                     loudspeaker.setText("喇叭单开");
                     loudspeakerButton.setBackgroundResource(R.drawable.ic_open_loudspeaker);
