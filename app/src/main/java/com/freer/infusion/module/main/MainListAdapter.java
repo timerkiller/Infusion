@@ -115,8 +115,9 @@ public class MainListAdapter extends BaseAdapter {
                 String.format(mContext.getString(R.string.total_unit), String.valueOf(data.ClientAction)));
 //        holder.mProgress.setProgressDrawable(
 //                SocketDataProcess.getProgressDrawable(mContext, data.WorkingState));
+
         if (data.ClientAction != 0) {
-            int process = data.RealProcess/data.ClientAction;
+            int process = (int)(((double)data.RealProcess/(double)data.ClientAction)*100);
             holder.mProgress.setVisibility(View.VISIBLE);
 
             int value = (int)(((double)(data.ClientAction - 10)/data.ClientAction)*100);
@@ -132,6 +133,7 @@ public class MainListAdapter extends BaseAdapter {
         } else {
             holder.mProgress.setVisibility(View.INVISIBLE);
         }
+
         holder.mImgvTip.setImageDrawable(
                 SocketDataProcess.getWarnDrawable(mContext, data.WorkingState));
         return convertView;
